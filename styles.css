@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap");
+
+
+body {
+  background-color: bisque;
+  height: 100vh;
+  font-size: 2rem;
+  color: #4f4f4f;
+  font-family: "Noto Sans Mono", monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px
+}
+
+.boxes-container {
+  display: grid;
+  width: 450px;
+  height: max-content;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+}
+.box {
+  height: 150px;
+  border-bottom: 5px solid #4f4f4f;
+  border-right: 5px solid #4f4f4f;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 150px;
+}
+.box:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+}
+.box:nth-child(3),
+.box:nth-child(6),
+.box:nth-child(9) {
+  border-right: none;
+}
+.box:nth-child(7),
+.box:nth-child(8),
+.box:nth-child(9) {
+  border-bottom: none;
+}
+.player-section {
+  text-align: center;
+}
+.player-section span {
+  font-size: 200px;
+}
+.footer {
+  height: 100px;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+.footer a {
+  color: inherit;
+}
+
+@media only screen and (max-width: 1024px) {
+    
+    .main-container {
+        flex-direction: column;
+        height: max-content;
+    }
+}
+
+
+/* winner popup */
+.result-container {
+  width: 100%;
+  height: min-content;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #000000cf;
+  color: #ffffff;
+  text-align: center;
+  font-size: 2.5rem;
+  transition: 200ms ease-in-out;
+}
+.result-container p {
+  height: 47px;
+}
+.result-container button {
+  background-color: #f8f9fa;
+  border: 1px solid #f8f9fa;
+  border-radius: 4px;
+  color: #3c4043;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1.5rem;
+  height: 36px;
+  line-height: 27px;
+  min-width: 54px;
+  padding: 0 16px;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: pre;
+  transition: 200ms ease-in-out;
+}
+
+.result-container button:hover {
+  border-color: #dadce0;
+  scale: 1.02;
+  box-shadow: rgba(0, 0, 0, .1) 0 3px 3px;
+  color: #202124;
+}
+
+.result-container button:focus {
+  border-color: #4285f4;
+  outline: none;
+}
