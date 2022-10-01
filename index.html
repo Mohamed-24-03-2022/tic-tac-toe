@@ -18,6 +18,9 @@
       <p></p>
       <button>Play again!</button>
     </div>
+    <div class="restart-container">
+      <button> Restart</button>
+    </div>
     <div class="main-container">
       <div class="player-section one">
         <div class="player-box">
@@ -57,7 +60,19 @@
       </p>
     </div>
 
-
+    <div class="form-container">
+      <form action="/">
+        <div>
+          <label for="player-one-name">Player 1 (x)</label>
+          <input type="text" name="player-one-name" id="player-one-name" pattern="[A-Za-z]+" spellcheck="false" required>
+        </div>
+        <div>
+          <label for="player-two-name">Player 2 (o)</label>
+          <input type="text" name="player-two-name" id="player-two-name" pattern="[A-Za-z]+" spellcheck="false" required>
+        </div>
+        <button>Start</button>
+      </form>
+    </div>
     <!-- font awesome script -->
     <script src="https://kit.fontawesome.com/4beab0cc1e.js" crossorigin="anonymous"></script>
   </body>
