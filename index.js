@@ -9,8 +9,8 @@ function Player(name, choice, order) {
 const choosePlayerNames = () => {
     document.body.style.backgroundColor = "#000000";
     const startButton = document.querySelector(".form-container button");
-    const playerTwoNameInput = document.querySelector("#player-two-name");
     const isComputer = document.querySelector("#is-computer");
+    const playerTwoNameInput = document.querySelector("#player-two-name");
     isComputer.addEventListener("input", () => {
         if (isComputer.checked === true) {
             playerTwoNameInput.disabled = true;
@@ -20,13 +20,11 @@ const choosePlayerNames = () => {
             playerTwoNameInput.value = "";
         }
     });
-
     startButton.addEventListener("click", () => {
         const formContainer = document.querySelector(".form-container");
         const playerOneNameInput = document.querySelector("#player-one-name");
         const playersNameParagraph = document.querySelectorAll(".player-box p");
-        if (
-            !playerOneNameInput.value ||
+        if (!playerOneNameInput.value ||
             (!playerTwoNameInput.value && isComputer.checked === false)
         ) {
             return;
@@ -39,12 +37,8 @@ const choosePlayerNames = () => {
             formContainer.style.visibility = "hidden";
             startButton.style.visibility = "hidden";
             formContainer.remove();
-            startButton.remove();
             document.body.style.backgroundColor = "";
-            displayController.boxesContainer.addEventListener(
-                "click",
-                displayController.populationBoxes
-            );
+            displayController.boxesContainer.addEventListener("click", displayController.populationBoxes);
         }
     });
 };
@@ -152,10 +146,9 @@ const chooseWinner = () => {
         (boxContent(0) === "x" && boxContent(4) === "x" && boxContent(8) === "x") ||
         (boxContent(2) === "x" && boxContent(4) === "x" && boxContent(6) === "x")
     ) {
-        console.log("YOU WIN");
         document.querySelector(".logo-box .player-one").style.color = "#ffc442";
         document.querySelector(".logo-box .player-two").style.color = "#333";
-        resetGame(`${gameboard.playerOne.name} has won.`);
+        resetGame(`You Have Won! ${gameboard.playerOne.name}.`);
     } else if (
         (boxContent(0) === "o" && boxContent(1) === "o" && boxContent(2) === "o") ||
         (boxContent(3) === "o" && boxContent(4) === "o" && boxContent(5) === "o") ||
@@ -166,10 +159,9 @@ const chooseWinner = () => {
         (boxContent(0) === "o" && boxContent(4) === "o" && boxContent(8) === "o") ||
         (boxContent(2) === "o" && boxContent(4) === "o" && boxContent(6) === "o")
     ) {
-        console.log("you lost");
         document.querySelector(".logo-box .player-one").style.color = "#333";
         document.querySelector(".logo-box .player-two").style.color = "#ffc442";
-        resetGame("You Lost");
+        resetGame(`You Have Lost! ${gameboard.playerTwo.name} beats you.`);
     } else if (
         boxContent(0) &&
         boxContent(1) &&
@@ -181,7 +173,6 @@ const chooseWinner = () => {
         boxContent(7) &&
         boxContent(8)
     ) {
-        console.log("It's a tie");
         document.querySelector(".logo-box .player-one").style.color = "#ffc442";
         document.querySelector(".logo-box .player-two").style.color = "#ffc442";
         resetGame("It's a tie");
@@ -206,10 +197,7 @@ const resetGame = (result) => {
             choiceText.remove();
         });
         changeContainerVisibility.hideContainer();
-        displayController.boxesContainer.addEventListener(
-            "click",
-            displayController.populationBoxes
-        );
+        displayController.boxesContainer.addEventListener("click", displayController.populationBoxes);
     });
 };
 const restartGame = (() => {
@@ -229,9 +217,28 @@ const restartGame = (() => {
             choiceText.remove();
         });
     });
+    return { restartButton };
 })();
+const changeSettings = (() => {
+    const changeSettingsButton = document.querySelector(".change-settings-container button");
+    const formContainer = document.querySelector(".form-container");
+    const startButton = document.querySelector(".form-container button");
 
+    changeSettingsButton.addEventListener("click", () => {
+        changeSettingsButton.remove();
+        document.body.style.backgroundColor = "#000000";
+        document.body.prepend(formContainer);
+        formContainer.style.visibility = "visible";
+        startButton.style.visibility = "visible";
+        if (changeContainerVisibility.resultContainer.style.visibility === "visible") {
+            const resetButton = document.querySelector(".result-container button");
+            resetButton.click();
+        } else {
+            restartGame.restartButton.click();
+        }
+        document.querySelector(".logo-box .player-one").style.color = "#333";
+        document.querySelector(".change-settings-container").append(changeSettingsButton);
+    });
+})();
 //todo read my documentation in oneNote
-//todo highlight player turn
-//todo add computer player
 //todo try remove IIFE if it's not necessary (by trying to delete and see the feedback)

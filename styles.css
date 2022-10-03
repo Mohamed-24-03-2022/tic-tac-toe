@@ -15,6 +15,9 @@ body {
   align-items: center;
   position: relative;
 }
+.change-settings-container button {
+  background-color: #ededed;
+}
 .restart-container button {
   color: #ffffff;
   background-color: #4f4f4f;
