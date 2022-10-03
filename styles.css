@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: bisque;
+  background-color: #ffffff;
   height: 100vh;
   font-size: 40px;
   color: #4f4f4f;
@@ -15,7 +15,16 @@ body {
   align-items: center;
   position: relative;
 }
-
+.restart-container button {
+  color: #ffffff;
+  background-color: #4f4f4f;
+}
+.restart-container button:hover {
+  color: #ffffff;
+}
+.restart-container button:focus {
+  border: none;
+}
 .main-container {
   height: 100%;
   display: flex;
@@ -63,6 +72,8 @@ body {
 }
 .player-section span {
   font-size: 200px;
+  text-shadow: 1px 2px 5px #333;
+  transition: 300ms ease-in-out;
 }
 .footer {
   height: 100px;

@@ -27,7 +27,7 @@
           <p>Player 1</p>
         </div>
         <div class="logo-box">
-          <span class="material-symbols-outlined"> person </span>
+          <span class="material-symbols-outlined player-one"> person </span>
         </div>
       </div>
       <div class="boxes-container">
@@ -46,7 +46,7 @@
           <p>Player 2</p>
         </div>
         <div class="logo-box">
-          <span class="material-symbols-outlined"> person </span>
+          <span class="material-symbols-outlined player-two"> person </span>
         </div>
       </div>
     </div>
@@ -59,16 +59,21 @@
         </a>
       </p>
     </div>
-
+<!---------------------------- form-container ------------------------->
     <div class="form-container">
       <form action="/">
         <div>
           <label for="player-one-name">Player 1 (x)</label>
-          <input type="text" name="player-one-name" id="player-one-name" pattern="[A-Za-z]+" spellcheck="false" required>
+          <input type="text" name="player-one-name" id="player-one-name" pattern="[A-Za-z]+" autocomplete="off" spellcheck="false" required>
+        </div>
+        <div>
+          <label for="is-computer">Play against computer ?</label>
+          <input type="checkbox" name="is-computer" id="is-computer">
+
         </div>
         <div>
           <label for="player-two-name">Player 2 (o)</label>
-          <input type="text" name="player-two-name" id="player-two-name" pattern="[A-Za-z]+" spellcheck="false" required>
+          <input type="text" name="player-two-name" id="player-two-name" pattern="[A-Za-z]+" autocomplete="off" spellcheck="false" required>
         </div>
         <button>Start</button>
       </form>
