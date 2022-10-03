@@ -126,7 +126,6 @@ const displayController = (() => {
             boxes[randChoice].click();
         } else if (boxes[randChoice].textContent !== "") {
             generatePcChoice();
-            console.log("WRONG BOX OOPS");
         }
     };
     return { boxesContainer, populationBoxes };
@@ -240,5 +239,4 @@ const changeSettings = (() => {
         document.querySelector(".change-settings-container").append(changeSettingsButton);
     });
 })();
-//todo read my documentation in oneNote
-//todo try remove IIFE if it's not necessary (by trying to delete and see the feedback)
+
