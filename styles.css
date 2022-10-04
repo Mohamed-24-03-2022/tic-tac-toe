@@ -14,6 +14,12 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
+  /* disable text selection highlight */
+  user-select:none;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  -webkit-user-select:none;
+  -webkit-user-select:none;
 }
 .change-settings-container button {
   background-color: #ededed;

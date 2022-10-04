@@ -182,10 +182,7 @@ const resetGame = (result) => {
     const resetButton = document.querySelector(".result-container button");
     resultParagraph.textContent = result;
     changeContainerVisibility.showContainer();
-    displayController.boxesContainer.removeEventListener(
-        "click",
-        displayController.populationBoxes
-    );
+    displayController.boxesContainer.removeEventListener("click", displayController.populationBoxes);
     resetButton.addEventListener("click", () => {
         gameboard.content.playerOne = [];
         gameboard.content.playerTwo = [];
@@ -229,6 +226,7 @@ const changeSettings = (() => {
         document.body.prepend(formContainer);
         formContainer.style.visibility = "visible";
         startButton.style.visibility = "visible";
+        displayController.boxesContainer.removeEventListener("click", displayController.populationBoxes);
         if (changeContainerVisibility.resultContainer.style.visibility === "visible") {
             const resetButton = document.querySelector(".result-container button");
             resetButton.click();
