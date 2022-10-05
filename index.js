@@ -24,9 +24,7 @@ const choosePlayerNames = () => {
         const formContainer = document.querySelector(".form-container");
         const playerOneNameInput = document.querySelector("#player-one-name");
         const playersNameParagraph = document.querySelectorAll(".player-box p");
-        if (!playerOneNameInput.value ||
-            (!playerTwoNameInput.value && isComputer.checked === false)
-        ) {
+        if (!playerOneNameInput.value || (!playerTwoNameInput.value && isComputer.checked === false)) {
             return;
         } else {
             document.querySelector(".logo-box .player-one").style.color = "#ffc442";
@@ -94,11 +92,22 @@ const displayController = (() => {
                 const oNumber = content.playerTwo.length;
                 if (box.textContent === "x" || box.textContent === "o") {
                     return;
-                } else if (xNumber > oNumber) {
+                }
+                else if (changeContainerVisibility.resultContainer.style.visibility === "visible") {
+                    displayController.boxesContainer.removeEventListener("click", displayController.populationBoxes);
+                }
+                else if (xNumber > oNumber) {
                     choiceText.textContent = content.playerOne[content.playerOne.length - 1];
+                    displayController.boxesContainer.removeEventListener("click", displayController.populationBoxes);
                     if (gameboard.playerTwo.name === "Computer") {
-                        setTimeout(() => generatePcChoice(), 150);
+                        setTimeout(() => {
+                            displayController.boxesContainer.addEventListener("click", displayController.populationBoxes);
+                            generatePcChoice();
+                        }, 800);
                     }
+                    setTimeout(() => {
+                        displayController.boxesContainer.addEventListener("click", displayController.populationBoxes);
+                    }, 800);
                 } else if (xNumber === oNumber) {
                     choiceText.textContent = content.playerTwo[content.playerTwo.length - 1];
                 }
