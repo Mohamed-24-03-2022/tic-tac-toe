@@ -11,19 +11,21 @@ const choosePlayerNames = () => {
     const startButton = document.querySelector(".form-container button");
     const isComputer = document.querySelector("#is-computer");
     const playerTwoNameInput = document.querySelector("#player-two-name");
+    const playerOneNameInput = document.querySelector("#player-one-name");
+    const playersNameParagraph = document.querySelectorAll(".player-box p");
+    playerOneNameInput.value = "Player 1";
+    playerTwoNameInput.value = "Player 2";
     isComputer.addEventListener("input", () => {
         if (isComputer.checked === true) {
             playerTwoNameInput.disabled = true;
             playerTwoNameInput.value = "Computer";
         } else {
             playerTwoNameInput.disabled = false;
-            playerTwoNameInput.value = "";
+            playerTwoNameInput.value = "Player 2";
         }
     });
     startButton.addEventListener("click", () => {
         const formContainer = document.querySelector(".form-container");
-        const playerOneNameInput = document.querySelector("#player-one-name");
-        const playersNameParagraph = document.querySelectorAll(".player-box p");
         if (!playerOneNameInput.value || (!playerTwoNameInput.value && isComputer.checked === false)) {
             return;
         } else {
@@ -246,4 +248,3 @@ const changeSettings = (() => {
         document.querySelector(".change-settings-container").append(changeSettingsButton);
     });
 })();
-
