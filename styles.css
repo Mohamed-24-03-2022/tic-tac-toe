@@ -61,6 +61,8 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 150px;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 .box:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
